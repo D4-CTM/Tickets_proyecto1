@@ -111,7 +111,7 @@ public class ReligousEvents extends javax.swing.JPanel {
     }
     //Se setea para que almas convertidas no sea editable
     public final void InvalidFields(){
-        AlmasConvertidas.setEditable(Hud.getActPanel() != 5);
+        AlmasConvertidas.setEditable(Hud.getActPanel() == 4);
     }
     //Se setean los datos
     public void setData(){

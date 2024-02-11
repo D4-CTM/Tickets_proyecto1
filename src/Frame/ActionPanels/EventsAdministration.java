@@ -118,6 +118,7 @@ public class EventsAdministration extends javax.swing.JPanel{
         
         EventoMusical.InvalidFields();
         EventoDeportivo.InvalidFields();
+        EventoReligioso.InvalidFields();
         switch (Hud.getActPanel()){
             case 3 -> ActionBTN.setText("Crear evento");
             case 4 -> ActionBTN.setText("Editar evento");

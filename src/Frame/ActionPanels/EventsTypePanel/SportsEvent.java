@@ -200,6 +200,7 @@ public class SportsEvent extends JPanel{
     }
     //Se setean los botones invalidos o de plano invisibles
     public final void InvalidFields(){
+        Sport.setEnabled(Hud.getActPanel() != 5);
         ActionBTN.setVisible(Hud.getActPanel() != 5);
         RemoveBTN.setVisible(Hud.getActPanel() != 5);
         ChangeTeamName.setVisible(Hud.getActPanel() != 5);

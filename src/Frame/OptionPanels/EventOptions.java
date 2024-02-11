@@ -168,10 +168,10 @@ public class EventOptions extends javax.swing.JPanel{
                     if (!Codice.isEmpty()){
                         if (EvMan.isCodeValid(Codice, 0)){
                             if (!EvMan.isEventCancelled(Codice, 0)){
-                                    Hud.setActPanel(4);
-                                    Hud.setCodice(Codice);
-                                    Hud.PanelChange = true;
-                            } else JOptionPane.showMessageDialog(null, "El evento que busca ha sido eliminado");
+                                Hud.setActPanel(4);
+                                Hud.setCodice(Codice);
+                                Hud.PanelChange = true;
+                            } else JOptionPane.showMessageDialog(null, "El evento que busca ha sido cancelado");
                         } else JOptionPane.showMessageDialog(null, "El evento que busca no existe");
                     } else JOptionPane.showMessageDialog(null, "Por favor ingrese un codigo correcto");
                 } catch (Exception ex){ }
@@ -206,11 +206,11 @@ public class EventOptions extends javax.swing.JPanel{
             try {
                 if (!Codice.isEmpty()){
                     if (EvMan.isCodeValid(Codice, 0)){
-                        if (!EvMan.isEventCancelled(Codice, 0)){
-                            Hud.setActPanel(5);
-                            Hud.setCodice(Codice);
-                            Hud.PanelChange = true;
-                        } else JOptionPane.showMessageDialog(null, "El evento que busca ha sido eliminado");
+                        Hud.setActPanel(5);
+                        Hud.setCodice(Codice);
+                        Hud.PanelChange = true;
+                        if (EvMan.isEventCancelled(Codice, 0))
+                            JOptionPane.showMessageDialog(null, "El evento: " + EvMan.getEvent(Codice, 0).getCode() + " ha sido cancelado.\nSe han abonado: " + EvMan.getEvent(Codice, 0).getStadiumCost() + " LPS. para poder cancelar este evento");
                     } else JOptionPane.showMessageDialog(null, "El evento que busca no existe");
                 } else JOptionPane.showMessageDialog(null, "Por favor ingrese un codigo correcto");
             } catch (Exception ex){ }
