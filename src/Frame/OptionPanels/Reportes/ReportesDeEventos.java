@@ -9,13 +9,13 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class EventosRealizados extends JPanel{
+public class ReportesDeEventos extends JPanel{
     //Tecnicamente constantes
     private final EventManager EvMan;
     private final AccManager AccMan;
     private final HudBar Hud;
     
-    public EventosRealizados(AccManager AccMan, EventManager EvMan, HudBar Hud, int X, int Y, int Width, int Height){
+    public ReportesDeEventos(AccManager AccMan, EventManager EvMan, HudBar Hud, int X, int Y, int Width, int Height){
         this.AccMan = AccMan;
         this.EvMan = EvMan;
         this.Hud = Hud;
@@ -57,10 +57,12 @@ public class EventosRealizados extends JPanel{
     }
     //Se desplegan los eventos que han ocurrido en el grafico
     private void setEventsData(){
+        
         switch (Hud.getActPanel()){
-            case 6 -> Info.setText(EvMan.getEventosRealizados("CODIGO - TIPO DE EVENTO - TITULO - FECHA - PRECIO POR EL ESTADIO\n", 0));
-            case 7 -> Info.setText(EvMan.getEventosFuturos("CODIGO - TIPO DE EVENTO - TITULO - FECHA - PRECIO POR EL ESTADIO\n", 0));
-            case 8 -> Info.setText(EvMan.getEventosCancelados("CODIGO - TIPO DE EVENTO - TITULO - FECHA - PRECIO POR EL ESTADIO\n", 0));
+            case 6 -> Info.setText(EvMan.getEventosRealizados("CODIGO - TIPO DE EVENTO - TITULO - FECHA D/M/YY - PRECIO POR EL ESTADIO\n", 0));
+            case 7 -> Info.setText(EvMan.getEventosFuturos("CODIGO - TIPO DE EVENTO - TITULO - FECHA D/M/YY - PRECIO POR EL ESTADIO\n", 0));
+            case 8 -> Info.setText(EvMan.getEventosCancelados("CODIGO - TIPO DE EVENTO - TITULO - FECHA D/M/YY - COSTO DE CANCELACION\n", 0));
+            case 10 -> Info.setText(EvMan.getEventsCreatedBy("CODIGO - TIPO DE EVENTO - TITULO - FECHA D/M/YY - ESTADO - PRECIO POR EL ESTADIO\n", 0, AccMan.getCurrentAcc().getEventsCreated()));
         }
         
         DefaultCategoryDataset GainsSet = new DefaultCategoryDataset();

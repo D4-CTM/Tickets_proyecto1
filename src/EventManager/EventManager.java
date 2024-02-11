@@ -157,8 +157,7 @@ public final class EventManager {
                         setCantidadMusical(CantM);
                     }
                 }
-                
-                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear());
+                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
                 Eventi += EventManager.get(Pos).getCode() + " - " + Type + " - " + EventManager.get(Pos).getTitle() + " - " + FechaSimp + " - " + EventManager.get(Pos).getStadiumCost() + "\n";
             }
             return getEventosRealizados(Eventi, Pos + 1);
@@ -198,7 +197,7 @@ public final class EventManager {
                         setCantidadMusical(CantM);
                     }
                 }
-                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear());
+                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
                 Eventi += EventManager.get(Pos).getCode() + " - " + Type + " - " + EventManager.get(Pos).getTitle() + " - " + FechaSimp + " - " + EventManager.get(Pos).getStadiumCost() + "\n";
             }
             return getEventosFuturos(Eventi, Pos + 1);
@@ -238,7 +237,7 @@ public final class EventManager {
                         setCantidadMusical(CantM);
                     }
                 }
-                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear());
+                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
                 Eventi += EventManager.get(Pos).getCode() + " - " + Type + " - " + EventManager.get(Pos).getTitle() + " - " + FechaSimp + " - " + EventManager.get(Pos).getStadiumCost() + "\n";
             }
             return getEventosCancelados(Eventi, Pos + 1);
@@ -248,7 +247,85 @@ public final class EventManager {
         return Eventi;
     }
     // -- FUNCION USADA PARA CONSEGUIR LA INFO DE LOS EVENTOS DEPENDIENDO DE LA FECHA --
-    
+    public final String getEventFilter(String Eventi, int Pos, Date Min, Date Max){
+        if (Pos < EventManager.size()){
+            if (EventManager.get(Pos).getRealizationDate().after(Min) && EventManager.get(Pos).getRealizationDate().before(Max)){
+                String Type = "";
+                switch (EventManager.get(Pos).getCode().charAt(0)){
+                    case 'R' -> {
+                        GainsR += EventManager.get(Pos).StadiumCost;
+                        Type = "Religioso";
+                        CantR++;
+
+                        setGananciasReligiosas(GainsR);
+                        setCantidadReligiosa(CantR);
+                    }
+                    case 'D' -> {
+                        GainsD += EventManager.get(Pos).StadiumCost;
+                        Type = "Deportivo";
+                        CantD++;
+
+                        setGananciasDeportivas(GainsD);
+                        setCantidadDeportiva(CantD);
+                    }
+                    case 'M' -> {
+                        GainsM += EventManager.get(Pos).StadiumCost;
+                        Type = "Musical";
+                        CantM++;
+
+                        setGananciasMusicales(GainsM);
+                        setCantidadMusical(CantM);
+                    }
+                }
+                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
+                Eventi += EventManager.get(Pos).getCode() + " - " + Type + " - " + EventManager.get(Pos).getTitle() + " - " + FechaSimp + " - " + EventManager.get(Pos).getStadiumCost() + "\n";
+            }
+            return getEventFilter(Eventi, Pos + 1, Min, Max);
+        }
+        GainsR = 0; GainsD = 0; GainsM = 0;
+        CantR = 0; CantD = 0; CantM = 0;
+        return Eventi;
+    }
+    // -- FUNCION USADA PARA CONSEGUIR LOS EVENTOS CREADOS POR EL USUARIO --
+    public final String getEventsCreatedBy(String Eventi, int Pos, ArrayList<String> UserCodes){
+        if (Pos < EventManager.size()){
+            if (UserCodes.contains(EventManager.get(Pos).getCode())){
+                String Type = "";
+                switch (EventManager.get(Pos).getCode().charAt(0)){
+                    case 'R' -> {
+                        GainsR += EventManager.get(Pos).StadiumCost;
+                        Type = "Religioso";
+                        CantR++;
+
+                        setGananciasReligiosas(GainsR);
+                        setCantidadReligiosa(CantR);
+                    }
+                    case 'D' -> {
+                        GainsD += EventManager.get(Pos).StadiumCost;
+                        Type = "Deportivo";
+                        CantD++;
+
+                        setGananciasDeportivas(GainsD);
+                        setCantidadDeportiva(CantD);
+                    }
+                    case 'M' -> {
+                        GainsM += EventManager.get(Pos).StadiumCost;
+                        Type = "Musical";
+                        CantM++;
+
+                        setGananciasMusicales(GainsM);
+                        setCantidadMusical(CantM);
+                    }
+                }
+                String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
+                Eventi += EventManager.get(Pos).getCode() + " - " + Type + " - " + EventManager.get(Pos).getTitle() + " - " + FechaSimp + " - " + ((EventManager.get(Pos).isCancelled())?"CANCELADO":"ACTIVO") + " - " + EventManager.get(Pos).getStadiumCost() + "\n";
+            }
+            return getEventsCreatedBy(Eventi, Pos + 1, UserCodes);
+        }
+        GainsR = 0; GainsD = 0; GainsM = 0;
+        CantR = 0; CantD = 0; CantM = 0;
+        return Eventi;
+    }
     // -- SETTERS --
     public void setCantidadMusical(int Cant){
         this.CantidadMusical = Cant;

@@ -27,18 +27,26 @@ public class ReportsPanel extends javax.swing.JPanel{
     }
     //Se setean los distintos paneles que despliegan la informacion requerida
     private void setInfo(){
-        Realizados = new EventosRealizados(AccMan, EvMan, Hud, 50, 50, getWidth() - 100, getHeight() - 100);
+        Realizados = new ReportesDeEventos(AccMan, EvMan, Hud, 50, 50, getWidth() - 100, getHeight() - 100);
         
-        Realizados.setBounds(Realizados.getBounds());
         Realizados.setBackground(java.awt.Color.LIGHT_GRAY);
+        Realizados.setBounds(Realizados.getBounds());
         add(Realizados);
+        
+        Buscar = new BusquedaPorFecha(AccMan, EvMan, Hud, 50, 50, getWidth() - 100, getHeight() - 100);
+        
+        Buscar.setBackground(java.awt.Color.LIGHT_GRAY);
+        Buscar.setBounds(Buscar.getBounds());
+        add(Buscar);
     }
     //Destaca los paneles que deben desplegarse y tal
     public final void Reveal(boolean Reveal){
+        this.setVisible(Reveal || Hud.getActPanel() == 9);
+        Buscar.Reveal(Hud.getActPanel() == 9);
         Realizados.Reveal(Reveal);
-        this.setVisible(Reveal);
     }
     // -- SWING ELEMENTS --
-    private EventosRealizados Realizados;
+    private ReportesDeEventos Realizados;
+    private BusquedaPorFecha Buscar;
     // -- SWING ELEMENTS
 }

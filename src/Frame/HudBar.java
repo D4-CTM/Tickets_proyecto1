@@ -170,9 +170,9 @@ public class HudBar extends JPanel implements Runnable{
     public void setPanels(){
         LogIn = (ActPanel == 0);
         MenuPanel = (ActPanel >= 1);
-        Reportes = (ActPanel >= 6 && ActPanel <= 10);
         AccCreation = (ActPanel == 1 || ActPanel == 2);
         EventAdmin = ((ActPanel >= 3 && ActPanel <= 5) || ActPanel == 97);
+        Reportes = (ActPanel == 6 || ActPanel == 7 || ActPanel == 8 || ActPanel == 10);
     }
     
 }

@@ -598,7 +598,7 @@ public class EventsAdministration extends javax.swing.JPanel{
                 if (!Description.getText().isBlank() && !Description.getText().equals("Ingrese la descripcion del evento")){
                     if (!Attendees.getText().isBlank() && !Attendees.getText().equals("Gente que asistira")){
                         if (!StadiumPrice.getText().isBlank() && !StadiumPrice.getText().equals("Precio acordado por el estadio")){
-                            if (Double.parseDouble(StadiumPrice.getText()) > 1500){
+                            if (Double.parseDouble(StadiumPrice.getText()) >= 1500){
                                 if (MaxAttendees >= Integer.parseInt(Attendees.getText())){
                                     if (Fecha.getDate() != null){
                                         return true;
