@@ -107,23 +107,25 @@ public class EventOptions extends javax.swing.JPanel{
                         if (AccMan.getCurrentAcc().EventCreatedBy(Codice)){
                             if (AccMan.getCurrentAcc().EventCreatedBy(Codice)){
                                 if (EvMan.isCodeValid(Codice, 0)){
-                                    if (!EvMan.isEventCancelled(Codice, 0)){
-                                        if (isOnedayBefore(Codice) && Codice.charAt(0) != 'R'){
-                                            if (JOptionPane.showInternalConfirmDialog(null, 
-                                                    "Si desea eliminar este evento debera abonar: "+EvMan.getEvent(Codice, 0).getStadiumCost()/2,
-                                                    "ELIMINAR EVENTO", 
-                                                    JOptionPane.YES_NO_CANCEL_OPTION, 
-                                                    JOptionPane.INFORMATION_MESSAGE) == 0){
-                                                EvMan.getEvent(Codice, 0).setCancelledPrice();
+                                    if (EvMan.getEvent(Codice, 0).getRealizationDate().after(Calendar.getInstance().getTime())){
+                                        if (!EvMan.isEventCancelled(Codice, 0)){
+                                            if (isOnedayBefore(Codice) && Codice.charAt(0) != 'R'){
+                                                if (JOptionPane.showInternalConfirmDialog(null, 
+                                                        "Si desea eliminar este evento debera abonar: "+EvMan.getEvent(Codice, 0).getStadiumCost()/2,
+                                                        "ELIMINAR EVENTO", 
+                                                        JOptionPane.YES_NO_CANCEL_OPTION, 
+                                                        JOptionPane.INFORMATION_MESSAGE) == 0){
+                                                    EvMan.getEvent(Codice, 0).setCancelledPrice();
+                                                    JOptionPane.showMessageDialog(null, EvMan.RemoveEvent(Codice, 0)?"El evento ha sido eliminado exitosamente":"El evento que intenta eliminar no existe");
+                                                }
+                                            } else if (JOptionPane.showInternalConfirmDialog(null, 
+                                                        "Si desea eliminar este evento debera abonar: "+EvMan.getEvent(Codice, 0).getStadiumCost()/4,                                                    "ELIMINAR EVENTO", 
+                                                        JOptionPane.YES_NO_CANCEL_OPTION, 
+                                                        JOptionPane.INFORMATION_MESSAGE) == 0){
                                                 JOptionPane.showMessageDialog(null, EvMan.RemoveEvent(Codice, 0)?"El evento ha sido eliminado exitosamente":"El evento que intenta eliminar no existe");
                                             }
-                                        } else if (JOptionPane.showInternalConfirmDialog(null, 
-                                                    "Si desea eliminar este evento debera abonar: "+EvMan.getEvent(Codice, 0).getStadiumCost()/4,                                                    "ELIMINAR EVENTO", 
-                                                    JOptionPane.YES_NO_CANCEL_OPTION, 
-                                                    JOptionPane.INFORMATION_MESSAGE) == 0){
-                                            JOptionPane.showMessageDialog(null, EvMan.RemoveEvent(Codice, 0)?"El evento ha sido eliminado exitosamente":"El evento que intenta eliminar no existe");
-                                        }
-                                    } else JOptionPane.showMessageDialog(null, "El evento que busca ya ha sido eliminado");
+                                        } else JOptionPane.showMessageDialog(null, "El evento que busca ya ha sido eliminado");
+                                    } else JOptionPane.showMessageDialog(null, "No puede eliminar un evento que ya ha ocurrido");
                                 } else JOptionPane.showMessageDialog(null, "El evento que busca eliminar no existe");
                             } else JOptionPane.showMessageDialog(null, "Solo el creador del evento puede eliminarlo");
                         } else JOptionPane.showMessageDialog(null, "¡Solo el creador del evento puede eliminarlo!");
