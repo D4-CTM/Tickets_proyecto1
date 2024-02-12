@@ -117,8 +117,11 @@ public class EventsAdministration extends javax.swing.JPanel{
         ActionBTN.setVisible(Hud.getActPanel() != 5);
         
         EventoMusical.InvalidFields();
+        EventoMusical.ClearData();
         EventoDeportivo.InvalidFields();
+        EventoDeportivo.ClearData();
         EventoReligioso.InvalidFields();
+        EventoReligioso.ClearData();
         switch (Hud.getActPanel()){
             case 3 -> ActionBTN.setText("Crear evento");
             case 4 -> ActionBTN.setText("Editar evento");
@@ -509,7 +512,7 @@ public class EventsAdministration extends javax.swing.JPanel{
                             Fecha.getDate());
                         EvMan.getSportEvent(Code.getText(), 0).setTeam1(EventoDeportivo.getTeam1());
                         EvMan.getSportEvent(Code.getText(), 0).setTeam2(EventoDeportivo.getTeam2());
-
+                        
                         JOptionPane.showMessageDialog(this, "Evento - "+Code.getText()+" - creado con exito");
                         CreateEvent();
                     }

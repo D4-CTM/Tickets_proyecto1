@@ -8,8 +8,6 @@ import EventManager.EventManager;
 import Frame.ActionPanels.AccountCreation;
 import Frame.ActionPanels.EventsAdministration;
 import Frame.OptionPanels.Reportes.ReportsPanel;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class MainPanel extends javax.swing.JPanel implements Runnable{
     private final EventManager EvMan;

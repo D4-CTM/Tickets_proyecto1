@@ -104,9 +104,7 @@ public class BusquedaPorFecha extends JPanel{
     }
     //Se consigue la data de los eventos 
     private void setData(){
-        Info.setText(EvMan.getEventFilter("CODIGO - TIPO DE EVENTO - TITULO - FECHA D/M/YY - PRECIO POR EL ESTADIO\n", 0, FechaMin.getDate(), FechaMax.getDate()));
-        GainsChart.setVisible(false);
-        CantChart.setVisible(false);
+        Info.setText(EvMan.getEventFilter("CODIGO - TIPO DE EVENTO - TITULO - FECHA D/M/YY - PRECIO POR EL ESTADIO\n", 0, FechaMin.getDate(), FechaMax.getDate()) + "\nGanancias totales: " + (EvMan.getGanancias('R') + EvMan.getGanancias('D') + EvMan.getGanancias('M')) + "\nCantidad total de eventos: " + (EvMan.getCantidad('R') + EvMan.getCantidad('D') + EvMan.getCantidad('M')));
         
         DefaultCategoryDataset GainsSet = new DefaultCategoryDataset();
         GainsSet.addValue(EvMan.getGanancias('R'), "Ganancias de eventos", "RELIGIOSOS");
@@ -123,6 +121,8 @@ public class BusquedaPorFecha extends JPanel{
         
         CantChart.setChart(ChartFactory.createBarChart("Cantidad de eventos", "Tipo de evento", "Cantidad", CantSet, PlotOrientation.VERTICAL, false, true, false));
         CantChart.setVisible(EvMan.getCantidad('R') > 0 || EvMan.getCantidad('D') > 0 || EvMan.getCantidad('M') > 0);
+        if (!(EvMan.getGanancias('R') > 0 || EvMan.getGanancias('D') > 0 || EvMan.getGanancias('M') > 0) && !(EvMan.getCantidad('R') > 0 || EvMan.getCantidad('D') > 0 || EvMan.getCantidad('M') > 0))
+            JOptionPane.showMessageDialog(this, "No se ha encontrado algun evento");
     }
     //Graficos con las ganancias de los eventos realizados
     private void setCantFilterEventsGraph(){
