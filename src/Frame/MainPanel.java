@@ -2,13 +2,14 @@ package Frame;
 
 import Frame.OptionPanels.LogInPanel;
 import Frame.OptionPanels.MenuPanel;
-import java.awt.Color;
 import javax.swing.JPanel;
 import AccManager.AccManager;
 import EventManager.EventManager;
 import Frame.ActionPanels.AccountCreation;
 import Frame.ActionPanels.EventsAdministration;
 import Frame.OptionPanels.Reportes.ReportsPanel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class MainPanel extends javax.swing.JPanel implements Runnable{
     private final EventManager EvMan;
@@ -40,10 +41,8 @@ public class MainPanel extends javax.swing.JPanel implements Runnable{
         Canva = new JPanel();
         
         Canva.setBounds(0, 50, java.awt.Toolkit.getDefaultToolkit().getScreenSize().width, java.awt.Toolkit.getDefaultToolkit().getScreenSize().height - 50);
-        //Green BG que se muestra en el fondo de todos, este es el Panel primigenio 0_o
-        Canva.setBackground(Color.green);
+        Canva.setBackground(java.awt.Color.lightGray);
         Canva.setLayout(null);
-        
         add(Canva);
     }
 

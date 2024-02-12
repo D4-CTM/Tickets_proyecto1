@@ -190,7 +190,7 @@ public class SportsEvent extends JPanel{
     public final void setData(){
         setTeamMembers1();
         setTeamMembers2();
-        
+
         TeamName1 = EvMan.getSportEvent(Hud.getCodice(), 0).getTeamName(0);
         TeamName2 = EvMan.getSportEvent(Hud.getCodice(), 0).getTeamName(1);
         TeamName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {TeamName1, TeamName2}));        

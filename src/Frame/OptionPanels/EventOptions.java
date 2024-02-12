@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -35,12 +36,14 @@ public class EventOptions extends javax.swing.JPanel{
     }
     //Nombre/Descripcion del panel
     private void Description(){
-        JLabel ReportsTXT = new JLabel("<=== Administrar eventos ===>");
+        JLabel ReportsTXT = new JLabel();
         
+        ReportsTXT.setIcon(new ImageIcon(getClass().getResource("EventosIcon.png")));
         ReportsTXT.setBounds(10, (getHeight()/2)-225, getWidth() - 20, 50);
         ReportsTXT.setFont(new java.awt.Font("Roboto",0,24));
         ReportsTXT.setForeground(Color.WHITE);
         add(ReportsTXT);
+        System.out.println("Width: "+ReportsTXT.getWidth());
     }
     //Crear boton de "Creacion de evento"
     private void setCreateBTN(){

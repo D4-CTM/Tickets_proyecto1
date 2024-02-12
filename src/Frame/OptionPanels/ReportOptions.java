@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -36,9 +37,10 @@ public class ReportOptions extends javax.swing.JPanel{
     }
     
     private void Description(){
-        JLabel ReportsTXT = new JLabel(" <======= Reportes =======>");
+        JLabel ReportsTXT = new JLabel();
         
-        ReportsTXT.setBounds(10, (getHeight()/2)-225, getWidth() - 20, 50);
+        ReportsTXT.setIcon(new ImageIcon(getClass().getResource("ReportsIcon.png")));
+        ReportsTXT.setBounds(10, (getHeight()/2)-250, getWidth() - 20, 50);
         ReportsTXT.setFont(new java.awt.Font("Roboto",0,24));
         ReportsTXT.setForeground(Color.WHITE);
         add(ReportsTXT);

@@ -111,10 +111,11 @@ public class MenuPanel extends javax.swing.JPanel{
     private void setEvCreBTN(){
         EventCreator = new JButton();
         
-        EventCreator.setBounds(10, (EventsPanel.getHeight()/2)-60, 40, 40);
+        EventCreator.setBounds(10, (EventsPanel.getHeight()/2)-80, 40, 40);
         EventCreator.setBackground(new Color(46, 70, 188));
         EventCreator.setFocusable(false);
         EventCreator.setBorder(null);
+        EventCreator.setIcon(new ImageIcon(getClass().getResource("EventCreation1.png")));
         EventCreator.addMouseListener(new MouseAdapter(){ 
             @Override
             public void mouseExited(MouseEvent e){
@@ -127,6 +128,9 @@ public class MenuPanel extends javax.swing.JPanel{
         });
         
         EventCreator.addActionListener((ActionEvent e) -> {
+            EventCreator.setIcon(new ImageIcon(getClass().getResource("EventCreation2.png")));
+            AccountManager.setIcon(new ImageIcon(getClass().getResource("AccountAdmin1.png")));
+            Report.setIcon(new ImageIcon(getClass().getResource("Reportes1.png")));
             AccountInfo.setVisible(false);
             EventOptions.setVisible(true);
             Reports.setVisible(false);
@@ -145,6 +149,7 @@ public class MenuPanel extends javax.swing.JPanel{
         AccountManager.setBackground(new Color(46, 70, 188));
         AccountManager.setFocusable(false);
         AccountManager.setBorder(null);
+        AccountManager.setIcon(new ImageIcon(getClass().getResource("AccountAdmin1.png")));
         AccountManager.addMouseListener(new MouseAdapter(){ 
             @Override
             public void mouseExited(MouseEvent e){
@@ -157,7 +162,10 @@ public class MenuPanel extends javax.swing.JPanel{
         });
         
         AccountManager.addActionListener((ActionEvent e) -> {
+            EventCreator.setIcon(new ImageIcon(getClass().getResource("EventCreation1.png")));
+            Report.setIcon(new ImageIcon(getClass().getResource("Reportes1.png")));
             if (AccMan.getCurrentAcc().getAccType() == 0){
+                AccountManager.setIcon(new ImageIcon(getClass().getResource("AccountAdmin2.png")));
                 EventOptions.setVisible(false);
                 AccountInfo.setVisible(true);
                 Reports.setVisible(false);
@@ -174,10 +182,11 @@ public class MenuPanel extends javax.swing.JPanel{
     private void setReport(){
         Report = new JButton();
         
-        Report.setBounds(10, (EventsPanel.getHeight()/2)+20, 40, 40);
+        Report.setBounds(10, (EventsPanel.getHeight()/2)+40, 40, 40);
         Report.setBackground(new Color(46, 70, 188));
         Report.setFocusable(false);
         Report.setBorder(null);
+        Report.setIcon(new ImageIcon(getClass().getResource("Reportes1.png")));
         Report.addMouseListener(new MouseAdapter(){ 
             @Override
             public void mouseExited(MouseEvent e){
@@ -190,6 +199,10 @@ public class MenuPanel extends javax.swing.JPanel{
         });
         
         Report.addActionListener((ActionEvent e) -> {
+            EventCreator.setIcon(new ImageIcon(getClass().getResource("EventCreation1.png")));
+            AccountManager.setIcon(new ImageIcon(getClass().getResource("AccountAdmin1.png")));
+            Report.setIcon(new ImageIcon(getClass().getResource("Reportes2.png")));
+       
             EventOptions.setVisible(false);
             AccountInfo.setVisible(false);
             Reports.setVisible(true);
