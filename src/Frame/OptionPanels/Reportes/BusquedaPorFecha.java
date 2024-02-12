@@ -124,7 +124,7 @@ public class BusquedaPorFecha extends JPanel{
         CantChart.setChart(ChartFactory.createBarChart("Cantidad de eventos", "Tipo de evento", "Cantidad", CantSet, PlotOrientation.VERTICAL, false, true, false));
         CantChart.setVisible(EvMan.getCantidad('R') > 0 || EvMan.getCantidad('D') > 0 || EvMan.getCantidad('M') > 0);
     }
-        //Graficos con las ganancias de los eventos realizados
+    //Graficos con las ganancias de los eventos realizados
     private void setCantFilterEventsGraph(){
         CantChart = new ChartPanel(ChartFactory.createBarChart("Cantidad de eventos", "Tipo de evento", "Cantidad", null, PlotOrientation.VERTICAL, false, true, false));
         CantChart.setBounds(Info.getX() + 10, Info.getY() + Info.getHeight() + 20, Info.getWidth()/2 - 20, Info.getHeight()  + (FechaMin.getY() + FechaMin.getHeight()));
