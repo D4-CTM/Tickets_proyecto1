@@ -601,11 +601,11 @@ public class EventsAdministration extends javax.swing.JPanel{
                     if (!Attendees.getText().isBlank() && !Attendees.getText().equals("Gente que asistira")){
                         if (!StadiumPrice.getText().isBlank() && !StadiumPrice.getText().equals("Precio acordado por el estadio")){
                             if (Double.parseDouble(StadiumPrice.getText()) >= 1500){
-                                if (MaxAttendees >= Integer.parseInt(Attendees.getText())){
+                                if (MaxAttendees >= Integer.parseInt(Attendees.getText()) && Integer.parseInt(Attendees.getText()) >= 100){
                                     if (Fecha.getDate() != null){
                                         return true;
                                     } JOptionPane.showMessageDialog(this, "Por favor ingrese una fecha valida");
-                                } else JOptionPane.showMessageDialog(this, "La cantidad de gente que asistira excede el limite");
+                                } else JOptionPane.showMessageDialog(this, "La cantidad de gente que asistira no debe superar el limite.\nPara crear un evento deben asistir minimo 100 personas.");
                             } else JOptionPane.showMessageDialog(this, "El precio minimo aceptado es de 1500 LPS. ");
                         } else JOptionPane.showMessageDialog(this, "Por favor ingrese el precio acordado por el estadio");
                     } else JOptionPane.showMessageDialog(this, "Por favor ingrese cuanta gente asistira al evento");
