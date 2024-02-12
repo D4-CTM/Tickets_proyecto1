@@ -196,7 +196,14 @@ public class SportsEvent extends JPanel{
         TeamName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {TeamName1, TeamName2}));        
         TeamName.setSelectedIndex(0);
         
-        Sport.setSelectedItem(EvMan.getSportEvent(Hud.getCodice(), 0).getSport());
+        Sport.setSelectedIndex(
+                switch (EvMan.getSportEvent(Hud.getCodice(), 0).getSport()){
+                    default -> 0;
+                    case "Tenis" -> 1;
+                    case "Rugby" -> 2;
+                    case "Baseball" -> 3;
+                }
+        );
     }
     //Se setean los botones invalidos o de plano invisibles
     public final void InvalidFields(){

@@ -509,7 +509,7 @@ public class EventsAdministration extends javax.swing.JPanel{
                             Fecha.getDate());
                         EvMan.getSportEvent(Code.getText(), 0).setTeam1(EventoDeportivo.getTeam1());
                         EvMan.getSportEvent(Code.getText(), 0).setTeam2(EventoDeportivo.getTeam2());
-                        
+
                         JOptionPane.showMessageDialog(this, "Evento - "+Code.getText()+" - creado con exito");
                         CreateEvent();
                     }
@@ -547,19 +547,21 @@ public class EventsAdministration extends javax.swing.JPanel{
             if (Fecha.getDate().after(EvMan.getEvent(Hud.getCodice(), 0).getRealizationDate()) || Fecha.getDate().equals(EvMan.getEvent(Hud.getCodice(), 0).getRealizationDate())){
                 switch (EventType.getSelectedIndex()){
                     case 0 -> {
-                        EvMan.getSportEvent(Hud.getCodice(), 0).EditData(
-                            Title.getText(), 
-                            Hud.getCodice(), 
-                            Description.getText(), 
-                            EventoDeportivo.getSport(), 
-                            EventoDeportivo.getTeamName(0), 
-                            EventoDeportivo.getTeamName(1), 
-                            Integer.parseInt(Attendees.getText()), 
-                            Double.parseDouble(StadiumPrice.getText()), 
-                            Fecha.getDate());
-                        EvMan.getSportEvent(Code.getText(), 0).setTeam1(EventoDeportivo.getTeam1());
-                        EvMan.getSportEvent(Code.getText(), 0).setTeam2(EventoDeportivo.getTeam2());
-                        JOptionPane.showMessageDialog(this, "¡Cambios realizados con exito!");
+                        if (!EventoDeportivo.getTeam1().isEmpty() && !EventoDeportivo.getTeam2().isEmpty()){
+                            EvMan.getSportEvent(Hud.getCodice(), 0).EditData(
+                                Title.getText(), 
+                                Hud.getCodice(), 
+                                Description.getText(), 
+                                EventoDeportivo.getSport(), 
+                                EventoDeportivo.getTeamName(0), 
+                                EventoDeportivo.getTeamName(1), 
+                                Integer.parseInt(Attendees.getText()), 
+                                Double.parseDouble(StadiumPrice.getText()), 
+                                Fecha.getDate());
+                            EvMan.getSportEvent(Code.getText(), 0).setTeam1(EventoDeportivo.getTeam1());
+                            EvMan.getSportEvent(Code.getText(), 0).setTeam2(EventoDeportivo.getTeam2());
+                            JOptionPane.showMessageDialog(this, "¡Cambios realizados con exito!");
+                        } else JOptionPane.showMessageDialog(this, "Por favor ingrese un integrante en ambos equipos");
                     }
                     case 1 -> {
                         EvMan.getMusicalEvent(Hud.getCodice(), 0).EditData(
