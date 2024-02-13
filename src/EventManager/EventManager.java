@@ -3,6 +3,7 @@ package EventManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public final class EventManager {
     private double GananciaDeportivas, GananciasReligiosas, GananciasMusicales;
@@ -119,9 +120,12 @@ public final class EventManager {
     }
     
     public boolean areEventsCreatedByUser(ArrayList<String> Codigos){
-        for (Event Evento : EventManager){
-            if (Evento.getCode().equals(Codigos.get(0)))
-                return true;
+        try {
+            for (Event Evento : EventManager){
+                if (Evento.getCode().equals(Codigos.get(0)))
+                    return true;
+            }
+        } catch (Exception Ex){
         }
         return false;
     }
