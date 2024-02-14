@@ -140,25 +140,16 @@ public final class EventManager {
                         GainsR += EventManager.get(Pos).StadiumCost;
                         Type = "Religioso";
                         CantR++;
-
-                        setGananciasReligiosas(GainsR);
-                        setCantidadReligiosa(CantR);
                     }
                     case 'D' -> {
                         GainsD += EventManager.get(Pos).StadiumCost;
                         Type = "Deportivo";
                         CantD++;
-
-                        setGananciasDeportivas(GainsD);
-                        setCantidadDeportiva(CantD);
                     }
                     case 'M' -> {
                         GainsM += EventManager.get(Pos).StadiumCost;
                         Type = "Musical";
                         CantM++;
-
-                        setGananciasMusicales(GainsM);
-                        setCantidadMusical(CantM);
                     }
                 }
                 String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
@@ -166,6 +157,12 @@ public final class EventManager {
             }
             return getEventosRealizados(Eventi, Pos + 1);
         }
+        setGananciasReligiosas(GainsR);
+        setCantidadReligiosa(CantR);
+        setGananciasDeportivas(GainsD);
+        setCantidadDeportiva(CantD);
+        setGananciasMusicales(GainsM);
+        setCantidadMusical(CantM);
         GainsR = 0; GainsD = 0; GainsM = 0;
         CantR = 0; CantD = 0; CantM = 0;
         return Eventi;
@@ -180,25 +177,16 @@ public final class EventManager {
                         GainsR += EventManager.get(Pos).StadiumCost;
                         Type = "Religioso";
                         CantR++;
-
-                        setGananciasReligiosas(GainsR);
-                        setCantidadReligiosa(CantR);
                     }
                     case 'D' -> {
                         GainsD += EventManager.get(Pos).StadiumCost;
                         Type = "Deportivo";
                         CantD++;
-
-                        setGananciasDeportivas(GainsD);
-                        setCantidadDeportiva(CantD);
                     }
                     case 'M' -> {
                         GainsM += EventManager.get(Pos).StadiumCost;
                         Type = "Musical";
                         CantM++;
-
-                        setGananciasMusicales(GainsM);
-                        setCantidadMusical(CantM);
                     }
                 }
                 String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
@@ -206,6 +194,12 @@ public final class EventManager {
             }
             return getEventosFuturos(Eventi, Pos + 1);
         }
+        setGananciasReligiosas(GainsR);
+        setCantidadReligiosa(CantR);
+        setGananciasDeportivas(GainsD);
+        setCantidadDeportiva(CantD);
+        setGananciasMusicales(GainsM);
+        setCantidadMusical(CantM);
         GainsR = 0; GainsD = 0; GainsM = 0;
         CantR = 0; CantD = 0; CantM = 0;
         return Eventi;
@@ -220,25 +214,16 @@ public final class EventManager {
                         GainsR += EventManager.get(Pos).StadiumCost;
                         Type = "Religioso";
                         CantR++;
-
-                        setGananciasReligiosas(GainsR);
-                        setCantidadReligiosa(CantR);
                     }
                     case 'D' -> {
                         GainsD += EventManager.get(Pos).StadiumCost;
                         Type = "Deportivo";
                         CantD++;
-
-                        setGananciasDeportivas(GainsD);
-                        setCantidadDeportiva(CantD);
                     }
                     case 'M' -> {
                         GainsM += EventManager.get(Pos).StadiumCost;
                         Type = "Musical";
                         CantM++;
-
-                        setGananciasMusicales(GainsM);
-                        setCantidadMusical(CantM);
                     }
                 }
                 String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
@@ -246,6 +231,12 @@ public final class EventManager {
             }
             return getEventosCancelados(Eventi, Pos + 1);
         }
+        setGananciasReligiosas(GainsR);
+        setCantidadReligiosa(CantR);
+        setGananciasDeportivas(GainsD);
+        setCantidadDeportiva(CantD);
+        setGananciasMusicales(GainsM);
+        setCantidadMusical(CantM);
         GainsR = 0; GainsD = 0; GainsM = 0;
         CantR = 0; CantD = 0; CantM = 0;
         return Eventi;
@@ -297,25 +288,16 @@ public final class EventManager {
                         GainsR += EventManager.get(Pos).StadiumCost;
                         Type = "Religioso";
                         CantR++;
-
-                        setGananciasReligiosas(GainsR);
-                        setCantidadReligiosa(CantR);
                     }
                     case 'D' -> {
                         GainsD += EventManager.get(Pos).StadiumCost;
                         Type = "Deportivo";
                         CantD++;
-
-                        setGananciasDeportivas(GainsD);
-                        setCantidadDeportiva(CantD);
                     }
                     case 'M' -> {
                         GainsM += EventManager.get(Pos).StadiumCost;
                         Type = "Musical";
                         CantM++;
-
-                        setGananciasMusicales(GainsM);
-                        setCantidadMusical(CantM);
                     }
                 }
                 String FechaSimp = String.valueOf(EventManager.get(Pos).getRealizationDate().getDay()) + "/"+ String.valueOf(EventManager.get(Pos).getRealizationDate().getMonth()) + "/" + String.valueOf(EventManager.get(Pos).getRealizationDate().getYear() - 100);
@@ -323,6 +305,12 @@ public final class EventManager {
             }
             return getEventsCreatedBy(Eventi, Pos + 1, UserCodes);
         }
+        setGananciasReligiosas(GainsR);
+        setCantidadReligiosa(CantR);
+        setGananciasDeportivas(GainsD);
+        setCantidadDeportiva(CantD);
+        setGananciasMusicales(GainsM);
+        setCantidadMusical(CantM);
         GainsR = 0; GainsD = 0; GainsM = 0;
         CantR = 0; CantD = 0; CantM = 0;
         return Eventi;
